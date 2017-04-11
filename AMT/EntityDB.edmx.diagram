@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="41d77657b2584c8c8913b9a304162202" Name="Diagram1" >
+        <EntityTypeShape EntityType="EntityDB.User" Width="1.5" PointX="3.5" PointY="0.75" />
+        <EntityTypeShape EntityType="EntityDB.Administrador" Width="1.5" PointX="5.875" PointY="1" />
+        <InheritanceConnector EntityType="EntityDB.Administrador" />
+        <EntityTypeShape EntityType="EntityDB.Arbitro" Width="1.5" PointX="0.625" PointY="0.75" />
+        <InheritanceConnector EntityType="EntityDB.Arbitro" />
+        <EntityTypeShape EntityType="EntityDB.Jogo" Width="1.5" PointX="0.625" PointY="3" />
+        <EntityTypeShape EntityType="EntityDB.Deck" Width="1.5" PointX="3.5" PointY="3.125" />
+        <EntityTypeShape EntityType="EntityDB.Carta" Width="1.5" PointX="6" PointY="3.125" />
+        <EntityTypeShape EntityType="EntityDB.JogoStandard" Width="1.5" PointX="0.625" PointY="11" />
+        <InheritanceConnector EntityType="EntityDB.JogoStandard" />
+        <EntityTypeShape EntityType="EntityDB.JogoEquipa" Width="1.5" PointX="4.125" PointY="9.625" />
+        <InheritanceConnector EntityType="EntityDB.JogoEquipa" />
+        <EntityTypeShape EntityType="EntityDB.Torneio" Width="1.5" PointX="11" PointY="0.75" />
+        <EntityTypeShape EntityType="EntityDB.TorneioEquipa" Width="1.5" PointX="8.125" PointY="6.625" />
+        <InheritanceConnector EntityType="EntityDB.TorneioEquipa" />
+        <EntityTypeShape EntityType="EntityDB.TorneioStandard" Width="1.5" PointX="12.875" PointY="6.625" />
+        <InheritanceConnector EntityType="EntityDB.TorneioStandard" />
+        <EntityTypeShape EntityType="EntityDB.Equipa" Width="1.5" PointX="9.5" PointY="8.875" />
+        <EntityTypeShape EntityType="EntityDB.Jogador" Width="1.5" PointX="12.75" PointY="10.5" />
+        <AssociationConnector Association="EntityDB.JogoArbitro" />
+        <AssociationConnector Association="EntityDB.DeckCarta" />
+        <AssociationConnector Association="EntityDB.JogoDeck" />
+        <AssociationConnector Association="EntityDB.JogoDeck1" />
+        <AssociationConnector Association="EntityDB.JogoEquipaEquipa" />
+        <AssociationConnector Association="EntityDB.JogoEquipaEquipa1" />
+        <AssociationConnector Association="EntityDB.EquipaTorneioEquipa" />
+        <AssociationConnector Association="EntityDB.EquipaJogador" />
+        <AssociationConnector Association="EntityDB.JogadorJogoStandard" />
+        <AssociationConnector Association="EntityDB.JogadorJogoStandard1" />
+        <AssociationConnector Association="EntityDB.JogadorTorneioStandard" />
+        <AssociationConnector Association="EntityDB.TorneioStandardJogoStandard" />
+        <AssociationConnector Association="EntityDB.TorneioEquipaJogoEquipa" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

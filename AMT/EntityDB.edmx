@@ -1,0 +1,1027 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EntityDB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="EntityDBStoreContainer">
+    <EntitySet Name="UserSet" EntityType="EntityDB.Store.UserSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="JogoSet" EntityType="EntityDB.Store.JogoSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DeckSet" EntityType="EntityDB.Store.DeckSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CartaSet" EntityType="EntityDB.Store.CartaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TorneioSet" EntityType="EntityDB.Store.TorneioSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EquipaSet" EntityType="EntityDB.Store.EquipaSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="JogadorSet" EntityType="EntityDB.Store.JogadorSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserSet_Arbitro" EntityType="EntityDB.Store.UserSet_Arbitro" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="JogoSet_JogoEquipa" EntityType="EntityDB.Store.JogoSet_JogoEquipa" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TorneioSet_TorneioEquipa" EntityType="EntityDB.Store.TorneioSet_TorneioEquipa" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="JogoSet_JogoStandard" EntityType="EntityDB.Store.JogoSet_JogoStandard" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TorneioSet_TorneioStandard" EntityType="EntityDB.Store.TorneioSet_TorneioStandard" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserSet_Administrador" EntityType="EntityDB.Store.UserSet_Administrador" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DeckCarta" EntityType="EntityDB.Store.DeckCarta" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EquipaTorneioEquipa" EntityType="EntityDB.Store.EquipaTorneioEquipa" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EquipaJogador" EntityType="EntityDB.Store.EquipaJogador" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="JogadorTorneioStandard" EntityType="EntityDB.Store.JogadorTorneioStandard" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="JogoArbitro" Association="EntityDB.Store.JogoArbitro">
+      <End Role="Jogo" EntitySet="JogoSet" />
+      <End Role="Arbitro" EntitySet="UserSet_Arbitro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeckCarta_Deck" Association="EntityDB.Store.FK_DeckCarta_Deck">
+      <End Role="Deck" EntitySet="DeckSet" />
+      <End Role="DeckCarta" EntitySet="DeckCarta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeckCarta_Carta" Association="EntityDB.Store.FK_DeckCarta_Carta">
+      <End Role="Carta" EntitySet="CartaSet" />
+      <End Role="DeckCarta" EntitySet="DeckCarta" />
+    </AssociationSet>
+    <AssociationSet Name="JogoDeck" Association="EntityDB.Store.JogoDeck">
+      <End Role="Jogo" EntitySet="JogoSet" />
+      <End Role="Deck" EntitySet="DeckSet" />
+    </AssociationSet>
+    <AssociationSet Name="JogoDeck1" Association="EntityDB.Store.JogoDeck1">
+      <End Role="Jogo" EntitySet="JogoSet" />
+      <End Role="Deck" EntitySet="DeckSet" />
+    </AssociationSet>
+    <AssociationSet Name="JogoEquipaEquipa" Association="EntityDB.Store.JogoEquipaEquipa">
+      <End Role="JogoEquipa" EntitySet="JogoSet_JogoEquipa" />
+      <End Role="Equipa" EntitySet="EquipaSet" />
+    </AssociationSet>
+    <AssociationSet Name="JogoEquipaEquipa1" Association="EntityDB.Store.JogoEquipaEquipa1">
+      <End Role="JogoEquipa" EntitySet="JogoSet_JogoEquipa" />
+      <End Role="Equipa" EntitySet="EquipaSet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EquipaTorneioEquipa_Equipa" Association="EntityDB.Store.FK_EquipaTorneioEquipa_Equipa">
+      <End Role="Equipa" EntitySet="EquipaSet" />
+      <End Role="EquipaTorneioEquipa" EntitySet="EquipaTorneioEquipa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EquipaTorneioEquipa_TorneioEquipa" Association="EntityDB.Store.FK_EquipaTorneioEquipa_TorneioEquipa">
+      <End Role="TorneioEquipa" EntitySet="TorneioSet_TorneioEquipa" />
+      <End Role="EquipaTorneioEquipa" EntitySet="EquipaTorneioEquipa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EquipaJogador_Equipa" Association="EntityDB.Store.FK_EquipaJogador_Equipa">
+      <End Role="Equipa" EntitySet="EquipaSet" />
+      <End Role="EquipaJogador" EntitySet="EquipaJogador" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EquipaJogador_Jogador" Association="EntityDB.Store.FK_EquipaJogador_Jogador">
+      <End Role="Jogador" EntitySet="JogadorSet" />
+      <End Role="EquipaJogador" EntitySet="EquipaJogador" />
+    </AssociationSet>
+    <AssociationSet Name="JogadorJogoStandard" Association="EntityDB.Store.JogadorJogoStandard">
+      <End Role="Jogador" EntitySet="JogadorSet" />
+      <End Role="JogoStandard" EntitySet="JogoSet_JogoStandard" />
+    </AssociationSet>
+    <AssociationSet Name="JogadorJogoStandard1" Association="EntityDB.Store.JogadorJogoStandard1">
+      <End Role="Jogador" EntitySet="JogadorSet" />
+      <End Role="JogoStandard" EntitySet="JogoSet_JogoStandard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JogadorTorneioStandard_Jogador" Association="EntityDB.Store.FK_JogadorTorneioStandard_Jogador">
+      <End Role="Jogador" EntitySet="JogadorSet" />
+      <End Role="JogadorTorneioStandard" EntitySet="JogadorTorneioStandard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JogadorTorneioStandard_TorneioStandard" Association="EntityDB.Store.FK_JogadorTorneioStandard_TorneioStandard">
+      <End Role="TorneioStandard" EntitySet="TorneioSet_TorneioStandard" />
+      <End Role="JogadorTorneioStandard" EntitySet="JogadorTorneioStandard" />
+    </AssociationSet>
+    <AssociationSet Name="TorneioStandardJogoStandard" Association="EntityDB.Store.TorneioStandardJogoStandard">
+      <End Role="TorneioStandard" EntitySet="TorneioSet_TorneioStandard" />
+      <End Role="JogoStandard" EntitySet="JogoSet_JogoStandard" />
+    </AssociationSet>
+    <AssociationSet Name="TorneioEquipaJogoEquipa" Association="EntityDB.Store.TorneioEquipaJogoEquipa">
+      <End Role="TorneioEquipa" EntitySet="TorneioSet_TorneioEquipa" />
+      <End Role="JogoEquipa" EntitySet="JogoSet_JogoEquipa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Arbitro_inherits_User" Association="EntityDB.Store.FK_Arbitro_inherits_User">
+      <End Role="User" EntitySet="UserSet" />
+      <End Role="Arbitro" EntitySet="UserSet_Arbitro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JogoEquipa_inherits_Jogo" Association="EntityDB.Store.FK_JogoEquipa_inherits_Jogo">
+      <End Role="Jogo" EntitySet="JogoSet" />
+      <End Role="JogoEquipa" EntitySet="JogoSet_JogoEquipa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TorneioEquipa_inherits_Torneio" Association="EntityDB.Store.FK_TorneioEquipa_inherits_Torneio">
+      <End Role="Torneio" EntitySet="TorneioSet" />
+      <End Role="TorneioEquipa" EntitySet="TorneioSet_TorneioEquipa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_JogoStandard_inherits_Jogo" Association="EntityDB.Store.FK_JogoStandard_inherits_Jogo">
+      <End Role="Jogo" EntitySet="JogoSet" />
+      <End Role="JogoStandard" EntitySet="JogoSet_JogoStandard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TorneioStandard_inherits_Torneio" Association="EntityDB.Store.FK_TorneioStandard_inherits_Torneio">
+      <End Role="Torneio" EntitySet="TorneioSet" />
+      <End Role="TorneioStandard" EntitySet="TorneioSet_TorneioStandard" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Administrador_inherits_User" Association="EntityDB.Store.FK_Administrador_inherits_User">
+      <End Role="User" EntitySet="UserSet" />
+      <End Role="Administrador" EntitySet="UserSet_Administrador" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="UserSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JogoSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="Numero" Type="int" Nullable="false" />
+    <Property Name="ArbitroId" Type="int" Nullable="false" />
+    <Property Name="DeckId" Type="int" Nullable="false" />
+    <Property Name="DeckId1" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DeckSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CartaSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Tipo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Custo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Lealdade" Type="int" Nullable="false" />
+    <Property Name="TextoRegras" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Ataque" Type="int" Nullable="false" />
+    <Property Name="Defesa" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TorneioSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Data" Type="datetime" Nullable="false" />
+    <Property Name="Descricao" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EquipaSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="JogoEquipaId" Type="int" Nullable="false" />
+    <Property Name="JogoEquipaId1" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JogadorSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Nickname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Idade" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserSet_Arbitro">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Nome" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Avatar" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JogoSet_JogoEquipa">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="TorneioEquipaId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TorneioSet_TorneioEquipa">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JogoSet_JogoStandard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="JogadorId" Type="int" Nullable="false" />
+    <Property Name="JogadorId1" Type="int" Nullable="false" />
+    <Property Name="TorneioStandardId" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TorneioSet_TorneioStandard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserSet_Administrador">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DeckCarta">
+    <Key>
+      <PropertyRef Name="Deck_Id" />
+      <PropertyRef Name="Carta_Id" />
+    </Key>
+    <Property Name="Deck_Id" Type="int" Nullable="false" />
+    <Property Name="Carta_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EquipaTorneioEquipa">
+    <Key>
+      <PropertyRef Name="Equipa_Id" />
+      <PropertyRef Name="TorneioEquipa_Id" />
+    </Key>
+    <Property Name="Equipa_Id" Type="int" Nullable="false" />
+    <Property Name="TorneioEquipa_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EquipaJogador">
+    <Key>
+      <PropertyRef Name="Equipa_Id" />
+      <PropertyRef Name="Jogador_Id" />
+    </Key>
+    <Property Name="Equipa_Id" Type="int" Nullable="false" />
+    <Property Name="Jogador_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JogadorTorneioStandard">
+    <Key>
+      <PropertyRef Name="Jogador_Id" />
+      <PropertyRef Name="TorneioStandard_Id" />
+    </Key>
+    <Property Name="Jogador_Id" Type="int" Nullable="false" />
+    <Property Name="TorneioStandard_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="JogoArbitro">
+    <End Role="Jogo" Type="EntityDB.Store.JogoSet" Multiplicity="*" />
+    <End Role="Arbitro" Type="EntityDB.Store.UserSet_Arbitro" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Arbitro">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Jogo">
+        <PropertyRef Name="ArbitroId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JogoDeck">
+    <End Role="Jogo" Type="EntityDB.Store.JogoSet" Multiplicity="*" />
+    <End Role="Deck" Type="EntityDB.Store.DeckSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Deck">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Jogo">
+        <PropertyRef Name="DeckId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JogoDeck1">
+    <End Role="Jogo" Type="EntityDB.Store.JogoSet" Multiplicity="*" />
+    <End Role="Deck" Type="EntityDB.Store.DeckSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Deck">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Jogo">
+        <PropertyRef Name="DeckId1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JogoEquipaEquipa">
+    <End Role="JogoEquipa" Type="EntityDB.Store.JogoSet_JogoEquipa" Multiplicity="1" />
+    <End Role="Equipa" Type="EntityDB.Store.EquipaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JogoEquipa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Equipa">
+        <PropertyRef Name="JogoEquipaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JogoEquipaEquipa1">
+    <End Role="JogoEquipa" Type="EntityDB.Store.JogoSet_JogoEquipa" Multiplicity="1" />
+    <End Role="Equipa" Type="EntityDB.Store.EquipaSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JogoEquipa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Equipa">
+        <PropertyRef Name="JogoEquipaId1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JogadorJogoStandard">
+    <End Role="Jogador" Type="EntityDB.Store.JogadorSet" Multiplicity="1" />
+    <End Role="JogoStandard" Type="EntityDB.Store.JogoSet_JogoStandard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jogador">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JogoStandard">
+        <PropertyRef Name="JogadorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="JogadorJogoStandard1">
+    <End Role="Jogador" Type="EntityDB.Store.JogadorSet" Multiplicity="1" />
+    <End Role="JogoStandard" Type="EntityDB.Store.JogoSet_JogoStandard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jogador">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JogoStandard">
+        <PropertyRef Name="JogadorId1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TorneioStandardJogoStandard">
+    <End Role="TorneioStandard" Type="EntityDB.Store.TorneioSet_TorneioStandard" Multiplicity="1" />
+    <End Role="JogoStandard" Type="EntityDB.Store.JogoSet_JogoStandard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TorneioStandard">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JogoStandard">
+        <PropertyRef Name="TorneioStandardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TorneioEquipaJogoEquipa">
+    <End Role="TorneioEquipa" Type="EntityDB.Store.TorneioSet_TorneioEquipa" Multiplicity="1" />
+    <End Role="JogoEquipa" Type="EntityDB.Store.JogoSet_JogoEquipa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TorneioEquipa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JogoEquipa">
+        <PropertyRef Name="TorneioEquipaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeckCarta_Deck">
+    <End Role="Deck" Type="EntityDB.Store.DeckSet" Multiplicity="1" />
+    <End Role="DeckCarta" Type="EntityDB.Store.DeckCarta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Deck">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DeckCarta">
+        <PropertyRef Name="Deck_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeckCarta_Carta">
+    <End Role="DeckCarta" Type="EntityDB.Store.DeckCarta" Multiplicity="*" />
+    <End Role="Carta" Type="EntityDB.Store.CartaSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Carta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DeckCarta">
+        <PropertyRef Name="Carta_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EquipaTorneioEquipa_Equipa">
+    <End Role="Equipa" Type="EntityDB.Store.EquipaSet" Multiplicity="1" />
+    <End Role="EquipaTorneioEquipa" Type="EntityDB.Store.EquipaTorneioEquipa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EquipaTorneioEquipa">
+        <PropertyRef Name="Equipa_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EquipaTorneioEquipa_TorneioEquipa">
+    <End Role="EquipaTorneioEquipa" Type="EntityDB.Store.EquipaTorneioEquipa" Multiplicity="*" />
+    <End Role="TorneioEquipa" Type="EntityDB.Store.TorneioSet_TorneioEquipa" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="TorneioEquipa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EquipaTorneioEquipa">
+        <PropertyRef Name="TorneioEquipa_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EquipaJogador_Equipa">
+    <End Role="Equipa" Type="EntityDB.Store.EquipaSet" Multiplicity="1" />
+    <End Role="EquipaJogador" Type="EntityDB.Store.EquipaJogador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipa">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EquipaJogador">
+        <PropertyRef Name="Equipa_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EquipaJogador_Jogador">
+    <End Role="EquipaJogador" Type="EntityDB.Store.EquipaJogador" Multiplicity="*" />
+    <End Role="Jogador" Type="EntityDB.Store.JogadorSet" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Jogador">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="EquipaJogador">
+        <PropertyRef Name="Jogador_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JogadorTorneioStandard_Jogador">
+    <End Role="Jogador" Type="EntityDB.Store.JogadorSet" Multiplicity="1" />
+    <End Role="JogadorTorneioStandard" Type="EntityDB.Store.JogadorTorneioStandard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jogador">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JogadorTorneioStandard">
+        <PropertyRef Name="Jogador_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JogadorTorneioStandard_TorneioStandard">
+    <End Role="JogadorTorneioStandard" Type="EntityDB.Store.JogadorTorneioStandard" Multiplicity="*" />
+    <End Role="TorneioStandard" Type="EntityDB.Store.TorneioSet_TorneioStandard" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="TorneioStandard">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JogadorTorneioStandard">
+        <PropertyRef Name="TorneioStandard_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Arbitro_inherits_User">
+    <End Role="User" Type="EntityDB.Store.UserSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Arbitro" Type="EntityDB.Store.UserSet_Arbitro" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Arbitro">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JogoEquipa_inherits_Jogo">
+    <End Role="Jogo" Type="EntityDB.Store.JogoSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="JogoEquipa" Type="EntityDB.Store.JogoSet_JogoEquipa" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Jogo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JogoEquipa">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TorneioEquipa_inherits_Torneio">
+    <End Role="Torneio" Type="EntityDB.Store.TorneioSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TorneioEquipa" Type="EntityDB.Store.TorneioSet_TorneioEquipa" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Torneio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TorneioEquipa">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_JogoStandard_inherits_Jogo">
+    <End Role="Jogo" Type="EntityDB.Store.JogoSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="JogoStandard" Type="EntityDB.Store.JogoSet_JogoStandard" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Jogo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="JogoStandard">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TorneioStandard_inherits_Torneio">
+    <End Role="Torneio" Type="EntityDB.Store.TorneioSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="TorneioStandard" Type="EntityDB.Store.TorneioSet_TorneioStandard" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Torneio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TorneioStandard">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Administrador_inherits_User">
+    <End Role="User" Type="EntityDB.Store.UserSet" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Administrador" Type="EntityDB.Store.UserSet_Administrador" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Administrador">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="EntityDB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="EntityDBContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserSet" EntityType="EntityDB.User" />
+          <EntitySet Name="JogoSet" EntityType="EntityDB.Jogo" />
+          <EntitySet Name="DeckSet" EntityType="EntityDB.Deck" />
+          <EntitySet Name="CartaSet" EntityType="EntityDB.Carta" />
+          <EntitySet Name="TorneioSet" EntityType="EntityDB.Torneio" />
+          <EntitySet Name="EquipaSet" EntityType="EntityDB.Equipa" />
+          <EntitySet Name="JogadorSet" EntityType="EntityDB.Jogador" />
+          <AssociationSet Name="JogoArbitro" Association="EntityDB.JogoArbitro">
+            <End Role="Jogo" EntitySet="JogoSet" />
+            <End Role="Arbitro" EntitySet="UserSet" />
+          </AssociationSet>
+          <AssociationSet Name="DeckCarta" Association="EntityDB.DeckCarta">
+            <End Role="Deck" EntitySet="DeckSet" />
+            <End Role="Carta" EntitySet="CartaSet" />
+          </AssociationSet>
+          <AssociationSet Name="JogoDeck" Association="EntityDB.JogoDeck">
+            <End Role="Jogo" EntitySet="JogoSet" />
+            <End Role="Deck" EntitySet="DeckSet" />
+          </AssociationSet>
+          <AssociationSet Name="JogoDeck1" Association="EntityDB.JogoDeck1">
+            <End Role="Jogo" EntitySet="JogoSet" />
+            <End Role="Deck" EntitySet="DeckSet" />
+          </AssociationSet>
+          <AssociationSet Name="JogoEquipaEquipa" Association="EntityDB.JogoEquipaEquipa">
+            <End Role="JogoEquipa" EntitySet="JogoSet" />
+            <End Role="Equipa" EntitySet="EquipaSet" />
+          </AssociationSet>
+          <AssociationSet Name="JogoEquipaEquipa1" Association="EntityDB.JogoEquipaEquipa1">
+            <End Role="JogoEquipa" EntitySet="JogoSet" />
+            <End Role="Equipa" EntitySet="EquipaSet" />
+          </AssociationSet>
+          <AssociationSet Name="EquipaTorneioEquipa" Association="EntityDB.EquipaTorneioEquipa">
+            <End Role="Equipa" EntitySet="EquipaSet" />
+            <End Role="TorneioEquipa" EntitySet="TorneioSet" />
+          </AssociationSet>
+          <AssociationSet Name="EquipaJogador" Association="EntityDB.EquipaJogador">
+            <End Role="Equipa" EntitySet="EquipaSet" />
+            <End Role="Jogador" EntitySet="JogadorSet" />
+          </AssociationSet>
+          <AssociationSet Name="JogadorJogoStandard" Association="EntityDB.JogadorJogoStandard">
+            <End Role="Jogador" EntitySet="JogadorSet" />
+            <End Role="JogoStandard" EntitySet="JogoSet" />
+          </AssociationSet>
+          <AssociationSet Name="JogadorJogoStandard1" Association="EntityDB.JogadorJogoStandard1">
+            <End Role="Jogador" EntitySet="JogadorSet" />
+            <End Role="JogoStandard" EntitySet="JogoSet" />
+          </AssociationSet>
+          <AssociationSet Name="JogadorTorneioStandard" Association="EntityDB.JogadorTorneioStandard">
+            <End Role="Jogador" EntitySet="JogadorSet" />
+            <End Role="TorneioStandard" EntitySet="TorneioSet" />
+          </AssociationSet>
+          <AssociationSet Name="TorneioStandardJogoStandard" Association="EntityDB.TorneioStandardJogoStandard">
+            <End Role="TorneioStandard" EntitySet="TorneioSet" />
+            <End Role="JogoStandard" EntitySet="JogoSet" />
+          </AssociationSet>
+          <AssociationSet Name="TorneioEquipaJogoEquipa" Association="EntityDB.TorneioEquipaJogoEquipa">
+            <End Role="TorneioEquipa" EntitySet="TorneioSet" />
+            <End Role="JogoEquipa" EntitySet="JogoSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Administrador" BaseType="EntityDB.User" >
+          <Property Name="email" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Arbitro" BaseType="EntityDB.User" >
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Avatar" Type="String" Nullable="false" />
+          <NavigationProperty Name="Jogo" Relationship="EntityDB.JogoArbitro" FromRole="Arbitro" ToRole="Jogo" />
+        </EntityType>
+        <EntityType Name="Jogo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descricao" Type="String" Nullable="false" />
+          <Property Name="Data" Type="DateTime" Nullable="false" />
+          <Property Name="Numero" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Arbitro" Relationship="EntityDB.JogoArbitro" FromRole="Jogo" ToRole="Arbitro" />
+          <Property Name="ArbitroId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Deck1" Relationship="EntityDB.JogoDeck" FromRole="Jogo" ToRole="Deck" />
+          <Property Name="DeckId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Deck2" Relationship="EntityDB.JogoDeck1" FromRole="Jogo" ToRole="Deck" />
+          <Property Name="DeckId1" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Deck">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <NavigationProperty Name="Carta" Relationship="EntityDB.DeckCarta" FromRole="Deck" ToRole="Carta" />
+          <NavigationProperty Name="JogoDeck1" Relationship="EntityDB.JogoDeck" FromRole="Deck" ToRole="Jogo" />
+          <NavigationProperty Name="JogoDeck2" Relationship="EntityDB.JogoDeck1" FromRole="Deck" ToRole="Jogo" />
+        </EntityType>
+        <EntityType Name="Carta">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <NavigationProperty Name="Deck" Relationship="EntityDB.DeckCarta" FromRole="Carta" ToRole="Deck" />
+          <Property Name="Tipo" Type="String" Nullable="false" />
+          <Property Name="Custo" Type="String" Nullable="false" />
+          <Property Name="Lealdade" Type="Int32" Nullable="false" />
+          <Property Name="TextoRegras" Type="String" Nullable="false" />
+          <Property Name="Ataque" Type="Int32" Nullable="false" />
+          <Property Name="Defesa" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JogoStandard" BaseType="EntityDB.Jogo" >
+          <NavigationProperty Name="Jogador1" Relationship="EntityDB.JogadorJogoStandard" FromRole="JogoStandard" ToRole="Jogador" />
+          <Property Name="JogadorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Jogador2" Relationship="EntityDB.JogadorJogoStandard1" FromRole="JogoStandard" ToRole="Jogador" />
+          <Property Name="JogadorId1" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TorneioStandard" Relationship="EntityDB.TorneioStandardJogoStandard" FromRole="JogoStandard" ToRole="TorneioStandard" />
+          <Property Name="TorneioStandardId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JogoEquipa" BaseType="EntityDB.Jogo" >
+          <NavigationProperty Name="Equipa1" Relationship="EntityDB.JogoEquipaEquipa" FromRole="JogoEquipa" ToRole="Equipa" />
+          <NavigationProperty Name="Equipa2" Relationship="EntityDB.JogoEquipaEquipa1" FromRole="JogoEquipa" ToRole="Equipa" />
+          <NavigationProperty Name="TorneioEquipa" Relationship="EntityDB.TorneioEquipaJogoEquipa" FromRole="JogoEquipa" ToRole="TorneioEquipa" />
+          <Property Name="TorneioEquipaId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Torneio">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Data" Type="DateTime" Nullable="false" />
+          <Property Name="Descricao" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TorneioEquipa" BaseType="EntityDB.Torneio" >
+          <NavigationProperty Name="Equipa" Relationship="EntityDB.EquipaTorneioEquipa" FromRole="TorneioEquipa" ToRole="Equipa" />
+          <NavigationProperty Name="JogoEquipa" Relationship="EntityDB.TorneioEquipaJogoEquipa" FromRole="TorneioEquipa" ToRole="JogoEquipa" />
+        </EntityType>
+        <EntityType Name="TorneioStandard" BaseType="EntityDB.Torneio" >
+          <NavigationProperty Name="Jogador" Relationship="EntityDB.JogadorTorneioStandard" FromRole="TorneioStandard" ToRole="Jogador" />
+          <NavigationProperty Name="JogoStandard" Relationship="EntityDB.TorneioStandardJogoStandard" FromRole="TorneioStandard" ToRole="JogoStandard" />
+        </EntityType>
+        <EntityType Name="Equipa">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Avatar" Type="String" Nullable="false" />
+          <NavigationProperty Name="JogoEquipa1" Relationship="EntityDB.JogoEquipaEquipa" FromRole="Equipa" ToRole="JogoEquipa" />
+          <Property Name="JogoEquipaId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="JogoEquipa2" Relationship="EntityDB.JogoEquipaEquipa1" FromRole="Equipa" ToRole="JogoEquipa" />
+          <Property Name="JogoEquipaId1" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TorneioEquipa" Relationship="EntityDB.EquipaTorneioEquipa" FromRole="Equipa" ToRole="TorneioEquipa" />
+          <NavigationProperty Name="Jogador" Relationship="EntityDB.EquipaJogador" FromRole="Equipa" ToRole="Jogador" />
+        </EntityType>
+        <EntityType Name="Jogador">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nome" Type="String" Nullable="false" />
+          <Property Name="Nickname" Type="String" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" />
+          <Property Name="Idade" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Equipa" Relationship="EntityDB.EquipaJogador" FromRole="Jogador" ToRole="Equipa" />
+          <NavigationProperty Name="JogoStandard1" Relationship="EntityDB.JogadorJogoStandard" FromRole="Jogador" ToRole="JogoStandard" />
+          <NavigationProperty Name="JogoStandard2" Relationship="EntityDB.JogadorJogoStandard1" FromRole="Jogador" ToRole="JogoStandard" />
+          <NavigationProperty Name="TorneioStandard" Relationship="EntityDB.JogadorTorneioStandard" FromRole="Jogador" ToRole="TorneioStandard" />
+        </EntityType>
+        <Association Name="JogoArbitro">
+          <End Type="EntityDB.Jogo" Role="Jogo" Multiplicity="*" />
+          <End Type="EntityDB.Arbitro" Role="Arbitro" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Arbitro">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Jogo">
+              <PropertyRef Name="ArbitroId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DeckCarta">
+          <End Type="EntityDB.Deck" Role="Deck" Multiplicity="*" />
+          <End Type="EntityDB.Carta" Role="Carta" Multiplicity="*" />
+        </Association>
+        <Association Name="JogoDeck">
+          <End Type="EntityDB.Jogo" Role="Jogo" Multiplicity="*" />
+          <End Type="EntityDB.Deck" Role="Deck" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Deck">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Jogo">
+              <PropertyRef Name="DeckId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="JogoDeck1">
+          <End Type="EntityDB.Jogo" Role="Jogo" Multiplicity="*" />
+          <End Type="EntityDB.Deck" Role="Deck" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Deck">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Jogo">
+              <PropertyRef Name="DeckId1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="JogoEquipaEquipa">
+          <End Type="EntityDB.JogoEquipa" Role="JogoEquipa" Multiplicity="1" />
+          <End Type="EntityDB.Equipa" Role="Equipa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JogoEquipa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Equipa">
+              <PropertyRef Name="JogoEquipaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="JogoEquipaEquipa1">
+          <End Type="EntityDB.JogoEquipa" Role="JogoEquipa" Multiplicity="1" />
+          <End Type="EntityDB.Equipa" Role="Equipa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JogoEquipa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Equipa">
+              <PropertyRef Name="JogoEquipaId1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EquipaTorneioEquipa">
+          <End Type="EntityDB.Equipa" Role="Equipa" Multiplicity="*" />
+          <End Type="EntityDB.TorneioEquipa" Role="TorneioEquipa" Multiplicity="*" />
+        </Association>
+        <Association Name="EquipaJogador">
+          <End Type="EntityDB.Equipa" Role="Equipa" Multiplicity="*" />
+          <End Type="EntityDB.Jogador" Role="Jogador" Multiplicity="*" />
+        </Association>
+        <Association Name="JogadorJogoStandard">
+          <End Type="EntityDB.Jogador" Role="Jogador" Multiplicity="1" />
+          <End Type="EntityDB.JogoStandard" Role="JogoStandard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jogador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JogoStandard">
+              <PropertyRef Name="JogadorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="JogadorJogoStandard1">
+          <End Type="EntityDB.Jogador" Role="Jogador" Multiplicity="1" />
+          <End Type="EntityDB.JogoStandard" Role="JogoStandard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Jogador">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JogoStandard">
+              <PropertyRef Name="JogadorId1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="JogadorTorneioStandard">
+          <End Type="EntityDB.Jogador" Role="Jogador" Multiplicity="*" />
+          <End Type="EntityDB.TorneioStandard" Role="TorneioStandard" Multiplicity="*" />
+        </Association>
+        <Association Name="TorneioStandardJogoStandard">
+          <End Type="EntityDB.TorneioStandard" Role="TorneioStandard" Multiplicity="1" />
+          <End Type="EntityDB.JogoStandard" Role="JogoStandard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TorneioStandard">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JogoStandard">
+              <PropertyRef Name="TorneioStandardId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TorneioEquipaJogoEquipa">
+          <End Type="EntityDB.TorneioEquipa" Role="TorneioEquipa" Multiplicity="1" />
+          <End Type="EntityDB.JogoEquipa" Role="JogoEquipa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TorneioEquipa">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="JogoEquipa">
+              <PropertyRef Name="TorneioEquipaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EntityDBStoreContainer" CdmEntityContainer="EntityDBContainer">
+    <EntitySetMapping Name="UserSet">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDB.User)">
+        <MappingFragment StoreEntitySet="UserSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDB.Arbitro)">
+        <MappingFragment StoreEntitySet="UserSet_Arbitro">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDB.Administrador)">
+        <MappingFragment StoreEntitySet="UserSet_Administrador">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JogoSet">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDB.Jogo)">
+        <MappingFragment StoreEntitySet="JogoSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="ArbitroId" ColumnName="ArbitroId" />
+          <ScalarProperty Name="DeckId" ColumnName="DeckId" />
+          <ScalarProperty Name="DeckId1" ColumnName="DeckId1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDB.JogoEquipa)">
+        <MappingFragment StoreEntitySet="JogoSet_JogoEquipa">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="TorneioEquipaId" ColumnName="TorneioEquipaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDB.JogoStandard)">
+        <MappingFragment StoreEntitySet="JogoSet_JogoStandard">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="JogadorId" ColumnName="JogadorId" />
+          <ScalarProperty Name="JogadorId1" ColumnName="JogadorId1" />
+          <ScalarProperty Name="TorneioStandardId" ColumnName="TorneioStandardId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeckSet">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDB.Deck)">
+        <MappingFragment StoreEntitySet="DeckSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CartaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDB.Carta)">
+        <MappingFragment StoreEntitySet="CartaSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Custo" ColumnName="Custo" />
+          <ScalarProperty Name="Lealdade" ColumnName="Lealdade" />
+          <ScalarProperty Name="TextoRegras" ColumnName="TextoRegras" />
+          <ScalarProperty Name="Ataque" ColumnName="Ataque" />
+          <ScalarProperty Name="Defesa" ColumnName="Defesa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TorneioSet">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDB.Torneio)">
+        <MappingFragment StoreEntitySet="TorneioSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Descricao" ColumnName="Descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDB.TorneioEquipa)">
+        <MappingFragment StoreEntitySet="TorneioSet_TorneioEquipa">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDB.TorneioStandard)">
+        <MappingFragment StoreEntitySet="TorneioSet_TorneioStandard">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EquipaSet">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDB.Equipa)">
+        <MappingFragment StoreEntitySet="EquipaSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="JogoEquipaId" ColumnName="JogoEquipaId" />
+          <ScalarProperty Name="JogoEquipaId1" ColumnName="JogoEquipaId1" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JogadorSet">
+      <EntityTypeMapping TypeName="IsTypeOf(EntityDB.Jogador)">
+        <MappingFragment StoreEntitySet="JogadorSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Idade" ColumnName="Idade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="DeckCarta" TypeName="EntityDB.DeckCarta" StoreEntitySet="DeckCarta">
+      <EndProperty Name="Deck">
+        <ScalarProperty Name="Id" ColumnName="Deck_Id" />
+      </EndProperty>
+      <EndProperty Name="Carta">
+        <ScalarProperty Name="Id" ColumnName="Carta_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EquipaTorneioEquipa" TypeName="EntityDB.EquipaTorneioEquipa" StoreEntitySet="EquipaTorneioEquipa">
+      <EndProperty Name="Equipa">
+        <ScalarProperty Name="Id" ColumnName="Equipa_Id" />
+      </EndProperty>
+      <EndProperty Name="TorneioEquipa">
+        <ScalarProperty Name="Id" ColumnName="TorneioEquipa_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EquipaJogador" TypeName="EntityDB.EquipaJogador" StoreEntitySet="EquipaJogador">
+      <EndProperty Name="Equipa">
+        <ScalarProperty Name="Id" ColumnName="Equipa_Id" />
+      </EndProperty>
+      <EndProperty Name="Jogador">
+        <ScalarProperty Name="Id" ColumnName="Jogador_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="JogadorTorneioStandard" TypeName="EntityDB.JogadorTorneioStandard" StoreEntitySet="JogadorTorneioStandard">
+      <EndProperty Name="Jogador">
+        <ScalarProperty Name="Id" ColumnName="Jogador_Id" />
+      </EndProperty>
+      <EndProperty Name="TorneioStandard">
+        <ScalarProperty Name="Id" ColumnName="TorneioStandard_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
