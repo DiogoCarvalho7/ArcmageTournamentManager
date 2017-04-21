@@ -16,5 +16,12 @@ namespace AMT
         {
             InitializeComponent();
         }
+
+        private void login_button_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
+
+    };
 }
